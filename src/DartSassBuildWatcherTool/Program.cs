@@ -1,4 +1,5 @@
 ﻿using DartSassBuildWatcherTool;
+using DartSassHost;
 using System.CommandLine;
 using System.Text;
 
@@ -7,11 +8,11 @@ Console.OutputEncoding = Encoding.UTF8;
 #if DEBUG
 //args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot\blazorwebkit.scss",
 //"--watch", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit"};
-//args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot\blazorwebkit.scss",
-//"--map", @"_content/Monq.BlazorWebKit=d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot"
-//};
-args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\wwwroot\css\app.scss",
-"--proj", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\Monq.BlazorWebKit.Client.csproj"};
+args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot\blazorwebkit.scss",
+"--map", @"_content/Monq.BlazorWebKit=d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot",
+};
+//args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\wwwroot\css\app.scss",
+//"--proj", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\Monq.BlazorWebKit.Client.csproj"};
 //args = new[] { "--files", @"d:\Projects\monq\saas\saas-frontend-b-service\src\Saas.Service.Frontend\wwwroot\css\app.scss",
 //"--proj", @"d:\Projects\monq\saas\saas-frontend-b-service\src\Saas.Service.Frontend\Saas.Service.Frontend.csproj"};
 #endif
@@ -50,18 +51,18 @@ projOption.IsRequired = false;
 
 var mapOption = new Option<IEnumerable<string>?>(
     name: "--map",
-    description: """Map prefix path in @use or @import path to custom path. Example "--map _content/MyLib=."."""
+    description: """Maps prefix path in @use or @import path to custom path. Example "--map _content/MyLib=."."""
     );
 mapOption.Arity = ArgumentArity.OneOrMore;
 mapOption.IsRequired = false;
 
-var outputStyleOption = new Option<string?>(
+var outputStyleOption = new Option<OutputStyle>(
     name: "--outputstyle",
-    description: """The css output style. Can be ."""
+    description: """The css output style. Can be "Compressed", "Expanded"."""
     );
 
-mapOption.Arity = ArgumentArity.ExactlyOne;
-mapOption.IsRequired = false;
+outputStyleOption.Arity = ArgumentArity.ExactlyOne;
+outputStyleOption.IsRequired = false;
 
 var rootCommand = new RootCommand("Compile scss files using Dart Sass Compiller.");
 rootCommand.AddOption(filesOption);

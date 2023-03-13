@@ -9,12 +9,14 @@ internal class SassBuilder : ISassBuilder
     readonly DirectoryInfo? _sassDirectory;
     readonly IEnumerable<DirectoryInfo>? _excludeDirectories;
     readonly IFileManager _customFileManager;
+    readonly OutputStyle _outputStyle;
 
     public SassBuilder(SassBuilderOptions options)
     {
         _sassFiles = options.SassFiles;
         _sassDirectory = options.SassDirectory;
         _excludeDirectories = options.ExcludeDirectories;
+        _outputStyle = options.OutputStyle;
 
         _customFileManager = new CustomFileManager(options.ProjectPathResolver, options.PathMap);
     }
@@ -43,8 +45,10 @@ internal class SassBuilder : ISassBuilder
 
                 WriteVerbose($"Processing: {file.FullName}");
 
-                //var result = sassCompiler.CompileFile(file, options: Options.SassCompilationOptions);
-                var result = sassCompiler.CompileFile(file.FullName, options: new CompilationOptions());
+                var result = sassCompiler.CompileFile(file.FullName, options: new CompilationOptions
+                {
+                    OutputStyle = _outputStyle,
+                });
 
                 var newFile = file.FullName.Replace(file.Extension, ".css");
 
