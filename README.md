@@ -1,4 +1,4 @@
-# DartSassWatchBuilderTool
+# DartSassBuildWatcherTool
 
 The tool was build to add support of the SASS(SCSS) files compilation in Razor Client Libraries (RCL) to CSS.
 Also there is a `--watch` option to detect `*.sass` and `*.scss` file changes in the directory and automatically trigger build operations.
@@ -7,7 +7,7 @@ This tool is used separatly of the .NET project files cause of Blazor WASM can't
 
 ## How to install
 
-The tool installes as [global net tool](https://www.nuget.org/packages/DartSassBuildWatcherTool).
+The tool installes as [global net tool](https://nuget.org/packages/DartSassBuildWatcherTool).
 
 ```bash
 dotnet tool install --global DartSassBuildWatcherTool
@@ -32,7 +32,7 @@ at `/projects/scssproj` directory and will trigger the build-file command of the
 
 ### Razor Client Library (RCL)
 
-The `DartSassWatchBuilderTool` bring the support of using the pattern when you want 
+The `DartSassBuildWatcherTool` bring the support of using the pattern when you want 
 to separate you core SASS files into the RCL (variables, mixins) and then use the RCL
 in your frontend client applications. This pattern is moslty used in the microfrontends.
 
@@ -126,7 +126,7 @@ $border-dark: rgba($base-color, 0.88);
 }
 ```
 
-##### Step 3. Run the DartSassWatchBuilderTool and build the main theme blazorwebkit.css
+##### Step 3. Run the DartSassBuildWatcherTool and build the main theme blazorwebkit.css
 
 ```powershell
 dsbw --files D:\Projects\BlazorWebKit\wwwroot\blazorwebkit.scss \
@@ -250,7 +250,7 @@ The tool will try to map libraries from `<PackageReference>` to standard pathes:
 
 If the Client App references the library project by `<ProjectReference>`, than the tool will use the path from `<ProjectReference Include="<path-to-library>">`.
 
-If you want to use Blazor WASM hot reload, than you can run the `DartSassWatchBuilderTool` in the `--watch` mode.
+If you want to use Blazor WASM hot reload, than you can run the `DartSassBuildWatcherTool` in the `--watch` mode.
 
 ```powershell
 dsbw --dir D:\Projects\BlazorFrontend\Components \

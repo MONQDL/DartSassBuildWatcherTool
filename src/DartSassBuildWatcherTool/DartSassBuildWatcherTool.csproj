@@ -18,8 +18,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>sass dartsass scss css builder</PackageTags>
-    <PackageProjectUrl>https://github.com/MONQDL/DartSassWatchBuilderTool</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/MONQDL/DartSassWatchBuilderTool</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/MONQDL/DartSassBuildWatcherTool</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MONQDL/DartSassBuildWatcherTool</RepositoryUrl>
     <Description>Dart Sass builder for .NET projects with Razor Client Library (RCL) and watch support.</Description>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
