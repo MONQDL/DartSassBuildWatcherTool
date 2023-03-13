@@ -10,7 +10,6 @@
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dsbw</ToolCommandName>
-    <PackageOutputPath>./nupkg</PackageOutputPath>
     <Authors>Sergey Pismennyi</Authors>
     <Company>MONQ Digital lab</Company>
     <Title>DartSassBuildWatcherTool</Title>
