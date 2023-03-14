@@ -8,11 +8,14 @@ internal class ProjectPackageRefManager
     const char Delimeter = '/';
 
     readonly FileInfo _csProjFile;
+    readonly Logger _log;
+
     List<PackageReference> _packageReferences = new();
     List<PackageReference> _projectReferences = new();
 
-    public ProjectPackageRefManager(FileInfo csProjFile)
+    public ProjectPackageRefManager(FileInfo csProjFile, Logger log)
     {
+        _log = log;
         _csProjFile = csProjFile;
         Load();
     }
@@ -36,6 +39,8 @@ internal class ProjectPackageRefManager
             ))
             .ToList();
 
+        _log.LogVerbose($"Loaded {_packageReferences.Count} Package references.");
+
         _projectReferences = doc.XPathSelectElements(projectReferenceName)
             .Select(pr => new PackageReference
             (
@@ -43,6 +48,8 @@ internal class ProjectPackageRefManager
                 Include: pr.Attribute(includeName).Value
             ))
             .ToList();
+
+        _log.LogVerbose($"Loaded {_projectReferences.Count} Project references.");
     }
 
     /// <summary>
@@ -69,7 +76,11 @@ internal class ProjectPackageRefManager
 
         var packagePath = ResolvePackagePath(splittedPathes.PackageName);
 
-        return Path.Combine(packagePath, splittedPathes.ContentPath);
+        var result = Path.Combine(packagePath, splittedPathes.ContentPath);
+
+        _log.LogVerbose($"""Path "{path}" resolved to "{result}".""");
+
+        return result;
     }
 
     static SplittedContentPath SplitPath(string path)

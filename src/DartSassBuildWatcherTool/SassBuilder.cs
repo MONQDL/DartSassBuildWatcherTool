@@ -10,13 +10,15 @@ internal class SassBuilder : ISassBuilder
     readonly IEnumerable<DirectoryInfo>? _excludeDirectories;
     readonly IFileManager _customFileManager;
     readonly OutputStyle _outputStyle;
+    readonly Logger _log;
 
-    public SassBuilder(SassBuilderOptions options)
+    public SassBuilder(SassBuilderOptions options, Logger log)
     {
         _sassFiles = options.SassFiles;
         _sassDirectory = options.SassDirectory;
         _excludeDirectories = options.ExcludeDirectories;
         _outputStyle = options.OutputStyle;
+        _log = log;
 
         _customFileManager = new CustomFileManager(options.ProjectPathResolver, options.PathMap);
     }
@@ -97,11 +99,5 @@ internal class SassBuilder : ISassBuilder
         }
     }
 
-    void WriteVerbose(string line)
-    {
-        //if (Options.OutputLevel >= OutputLevel.Verbose)
-        {
-            Console.WriteLine(line);
-        }
-    }
+    void WriteVerbose(string line) => _log.LogVerbose(line);
 }
