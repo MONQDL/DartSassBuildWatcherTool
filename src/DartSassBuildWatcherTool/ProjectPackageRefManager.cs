@@ -128,7 +128,7 @@ internal class ProjectPackageRefManager
             {
                 // Calculating full path that will be returned ralative to _csProjFile.
                 var projectDirectory = _csProjFile.Directory;
-                var path = Path.Combine(projectDirectory.FullName, Path.GetDirectoryName(reference.Include));
+                var path = Path.Combine(projectDirectory.FullName, Path.GetDirectoryName(reference.Include.Replace("\\", "/")));
                 return Path.Combine(path, "wwwroot");
             }
         }
