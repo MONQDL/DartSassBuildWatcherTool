@@ -35,7 +35,7 @@ internal class ProjectPackageRefManager
             (
                 Type: PackageTypes.Package,
                 Include: pr.Attribute(includeName).Value,
-                Version: new Version(pr.Attribute(versionName).Value)
+                Version: pr.Attribute(versionName).Value
             ))
             .ToList();
 
@@ -117,7 +117,7 @@ internal class ProjectPackageRefManager
                 return Path.Combine(userprofile,
                            nugetPackagesPath,
                            packageName,
-                           reference.Version.ToString(),
+                           reference.Version ?? string.Empty,
                            "staticwebassets");
             }
         }
@@ -146,7 +146,7 @@ internal class ProjectPackageRefManager
     }
 
     record SplittedContentPath(string PackageName, string ContentPath);
-    record PackageReference(PackageTypes Type, string Include, Version? Version = default);
+    record PackageReference(PackageTypes Type, string Include, string? Version = null);
     enum PackageTypes
     {
         Package,
