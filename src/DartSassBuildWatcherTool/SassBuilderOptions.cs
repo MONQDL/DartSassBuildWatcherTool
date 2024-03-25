@@ -2,7 +2,7 @@
 
 namespace DartSassBuildWatcherTool;
 
-record SassBuilderOptions(IEnumerable<FileInfo>? SassFiles,
+internal sealed record SassBuilderOptions(IEnumerable<FileInfo>? SassFiles,
         DirectoryInfo? SassDirectory,
         IEnumerable<DirectoryInfo>? ExcludeDirectories,
         ProjectPackageRefManager? ProjectPathResolver,

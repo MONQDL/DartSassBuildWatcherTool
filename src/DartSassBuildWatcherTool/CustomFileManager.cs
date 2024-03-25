@@ -8,7 +8,7 @@ namespace DartSassBuildWatcherTool;
 /// <summary>
 /// File manager
 /// </summary>
-internal sealed class CustomFileManager : IFileManager
+public sealed class CustomFileManager : IFileManager
 {
     /// <summary>
     /// Current working directory of the application

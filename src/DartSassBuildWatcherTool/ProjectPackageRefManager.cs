@@ -3,7 +3,8 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace DartSassBuildWatcherTool;
-internal class ProjectPackageRefManager
+
+public sealed class ProjectPackageRefManager
 {
     const char Delimeter = '/';
 
