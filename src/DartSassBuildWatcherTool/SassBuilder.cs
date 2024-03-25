@@ -3,7 +3,8 @@ using DartSassHost.Helpers;
 using JavaScriptEngineSwitcher.V8;
 
 namespace DartSassBuildWatcherTool;
-internal class SassBuilder : ISassBuilder
+
+internal sealed class SassBuilder : ISassBuilder
 {
     readonly IEnumerable<FileInfo>? _sassFiles;
     readonly DirectoryInfo? _sassDirectory;

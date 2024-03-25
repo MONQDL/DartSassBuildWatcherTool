@@ -1,6 +1,6 @@
 ﻿namespace DartSassBuildWatcherTool;
 
-internal class Logger
+public sealed class Logger
 {
     readonly LogLevels _logLevel;
 

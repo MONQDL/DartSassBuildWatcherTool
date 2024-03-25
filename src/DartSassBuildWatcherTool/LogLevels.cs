@@ -1,5 +1,5 @@
 ﻿namespace DartSassBuildWatcherTool;
-internal enum LogLevels
+public enum LogLevels
 {
     Silent,
     Default,

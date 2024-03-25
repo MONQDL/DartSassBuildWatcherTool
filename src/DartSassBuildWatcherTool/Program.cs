@@ -11,8 +11,10 @@ Console.OutputEncoding = Encoding.UTF8;
 //args = new[] { "--files", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot\blazorwebkit.scss",
 //"--map", @"_content/Monq.BlazorWebKit=d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit\wwwroot",
 //};
-args = new[] { "--dir", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client",
-"--proj", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\Monq.BlazorWebKit.Client.csproj",
+//args = new[] { "--dir", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client",
+//"--proj", @"d:\Projects\monq\libs\Monq.BlazorWebKit\src\Monq.BlazorWebKit.Client\Monq.BlazorWebKit.Client.csproj",
+//"--loglevel", "Verbose"};
+args = new[] { "--dir", @"d:\Temp\BlazorApp5\BlazorApp5\BlazorApp5.Client",
 "--loglevel", "Verbose"};
 //args = new[] { "--files", @"d:\Projects\monq\saas\saas-frontend-b-service\src\Saas.Service.Frontend\wwwroot\css\app.scss",
 //"--proj", @"d:\Projects\monq\saas\saas-frontend-b-service\src\Saas.Service.Frontend\Saas.Service.Frontend.csproj"};
