@@ -257,3 +257,11 @@ dsbw --dir D:\Projects\BlazorFrontend\Components \
 --proj D:\Projects\BlazorFrontend\BlazorFrontend.csproj
 --watch D:\Projects\BlazorFrontend\Components
 ```
+
+### Logging
+
+For changing log level use `--loglevel=<level>` parameter. The values must be of:
+
+- Silent,
+- Default,
+- Verbose
